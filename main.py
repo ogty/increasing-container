@@ -49,7 +49,7 @@ def get_number_of_commits_today(username: str) -> int:
         headers=headers, 
         data=json.dumps(body)
     )
-    print("ok")
+
     json_data = json.loads(response.text)
     todays_contributions = json_data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"][-1]["contributionDays"][-1]["contributionCount"]
 
@@ -59,7 +59,7 @@ def get_number_of_commits_today(username: str) -> int:
 @app.get("/")
 async def moby_dock(username: str, color: str = "0070b8"):
     color = f"#{color}" if all(c in hexdigits for c in color) else color
-    print("ok")
+
     number_of_commit = get_number_of_commits_today(username)                   # 仮のコミット数
     number_of_containers_in_row = 5                                            # クジラの上に乗る一行のコンテナの数
     excess_containers = number_of_commit % number_of_containers_in_row         # 余ったコンテナの数
