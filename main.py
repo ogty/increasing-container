@@ -60,7 +60,7 @@ def get_number_of_commits_today(username: str) -> int:
 async def moby_dock(username: str, color: str = "0070b8"):
     color = f"#{color}" if all(c in hexdigits for c in color) else color
 
-    number_of_commit = get_number_of_commits_today(username)                   # 仮のコミット数
+    number_of_commit = get_number_of_commits_today(username)
     number_of_containers_in_row = 5                                            # クジラの上に乗る一行のコンテナの数
     excess_containers = number_of_commit % number_of_containers_in_row         # 余ったコンテナの数
     number_of_container_rows = number_of_commit // number_of_containers_in_row # コンテナが積み重なった高さ
